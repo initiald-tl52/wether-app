@@ -16,6 +16,7 @@
 |------|----|-------|
 |name|string|null: false,unique: true|
 |record_point|string|null: false,unique: true|
+nameカラムは都道府県の地方（十勝、宗谷など）
 
 ### Association
 - has_many :users
