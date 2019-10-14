@@ -42,10 +42,10 @@ nameカラムは都道府県の地方（十勝、宗谷など）
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|body|text||
+|body|text|null: false|
 |user_id|integer|null: false, foreign_key: true|
 |region_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
-- belongs_to :region# wether-app
+- belongs_to :region

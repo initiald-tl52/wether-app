@@ -10,13 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_124420) do
+ActiveRecord::Schema.define(version: 2019_10_14_131658) do
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "body"
+    t.bigint "user_id"
+    t.bigint "region_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["region_id"], name: "index_messages_on_region_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "regions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "record_point"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "wether_id"
+    t.index ["wether_id"], name: "index_regions_on_wether_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "region_id"
+    t.index ["region_id"], name: "index_users_on_region_id"
   end
 
+  create_table "wethers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.date "date"
+    t.integer "wether"
+    t.integer "temprature"
+    t.integer "precipitation"
+    t.integer "wind_speed"
+    t.integer "hour_of_sunlight"
+    t.integer "snow_depth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "region_id"
+    t.index ["region_id"], name: "index_wethers_on_region_id"
+  end
+
+  add_foreign_key "messages", "regions"
+  add_foreign_key "messages", "users"
+  add_foreign_key "regions", "wethers"
+  add_foreign_key "wethers", "regions"
 end
