@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2019-10-14
+  wether: 1
+  temprature: 1
+  precipitation: 1
+  wind_speed: 1
+  hour_of_sunlight: 1
+  snow_depth: 1
+
+two:
+  date: 2019-10-14
+  wether: 1
+  temprature: 1
+  precipitation: 1
+  wind_speed: 1
+  hour_of_sunlight: 1
+  snow_depth: 1

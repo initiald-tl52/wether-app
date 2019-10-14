@@ -16,6 +16,7 @@
 |------|----|-------|
 |name|string|null: false,unique: true|
 |record_point|string|null: false,unique: true|
+|wether_id|integer|null: false, foreign_key: true|
 nameカラムは都道府県の地方（十勝、宗谷など）
 
 ### Association
@@ -33,6 +34,7 @@ nameカラムは都道府県の地方（十勝、宗谷など）
 |wind_speed|integer|null: false|
 |hour_of_sunlight|integer|null: false|
 |snow_depth|integer|null: false|
+|region_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :region
