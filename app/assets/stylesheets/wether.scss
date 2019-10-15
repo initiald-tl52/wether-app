@@ -1,3 +1,39 @@
-// Place all the styles related to the wether controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+  box-sizing: border-box;
+}
+
+@mixin simpleshadow {
+  margin: 0 auto;
+  padding: 1em;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 1px 1px 2px #ccc;
+}
+
+.header{
+  height:100px;
+  width: 95%;
+  @include simpleshadow;
+}
+.wether{
+  height:calc(100vh - 100px - 200px);
+  width: 95%;
+  @include simpleshadow;
+  display: flex;
+}
+.wetherinfos{
+  width: 40%;
+  @include simpleshadow;
+}
+
+.wetherchart{
+  width: 60%;
+  @include simpleshadow;
+}
+
+
+.messages{
+  height:200px;
+  width: 95%;
+  @include simpleshadow;
+}
