@@ -66,3 +66,9 @@ gem 'haml-rails'
 
 gem 'mechanize'
 
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-doc'
+end
+
