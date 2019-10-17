@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_060912) do
+ActiveRecord::Schema.define(version: 2019_10_17_123327) do
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "body"
@@ -27,8 +27,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_060912) do
     t.string "record_point"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "wether_id"
-    t.index ["wether_id"], name: "index_regions_on_wether_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -55,6 +53,5 @@ ActiveRecord::Schema.define(version: 2019_10_17_060912) do
 
   add_foreign_key "messages", "regions"
   add_foreign_key "messages", "users"
-  add_foreign_key "regions", "wethers"
   add_foreign_key "wethers", "regions"
 end
