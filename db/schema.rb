@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_123327) do
+ActiveRecord::Schema.define(version: 2019_10_18_022430) do
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "body"
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 2019_10_17_123327) do
 
   create_table "wethers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date"
-    t.integer "temprature"
-    t.integer "precipitation"
-    t.integer "wind_speed"
-    t.integer "hour_of_sunlight"
+    t.decimal "temprature", precision: 6, scale: 2
+    t.decimal "precipitation", precision: 6, scale: 2
+    t.decimal "wind_speed", precision: 6, scale: 2
+    t.decimal "hour_of_sunlight", precision: 6, scale: 2
     t.integer "snow_depth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
