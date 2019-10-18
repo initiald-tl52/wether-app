@@ -1,14 +1,19 @@
 .wrapper
   .header
-    %form(action="#")
-      %input.seach_field(type="text")
-      %input.search_button(type="submit")
+    = form_tag(wether_show_path, method: :get) do
+      = label_tag :地域
+      = select_tag :record_point,options_for_select(Region.pluck(:record_point))
+      = submit_tag("Search")
+    -# = form_for @region,method: "delete" do |f|
+    -#   = f.label :record_point
+    -#   = f.collection_select :record_point, @region.all, :name, :name
+    -#   = f.submit
   .wether
     .wetherinfos
       .info
         %p
     .wetherchart
       .chart
-        = line_chart @chart_data
+        = line_chart @chart_data,colors: ["#b00"],defer: true 
   .messages
     .message
