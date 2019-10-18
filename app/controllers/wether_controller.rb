@@ -1,6 +1,6 @@
 class WetherController < ApplicationController
   def index
-    
+    @chart_data = Wether.order('date ASC')
   end
 
   def show
