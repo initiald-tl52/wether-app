@@ -1,13 +1,9 @@
 .wrapper
   .header
-    = form_tag(wether_show_path, method: :get) do
-      = label_tag :地域
-      = select_tag :record_point,options_for_select(Region.pluck(:record_point))
+    = form_tag(wether_show_path, method: :get,class:'form_region') do
+      = label_tag(:record_point, text='地域')
+      = select_tag(:record_point, options_for_select(Region.pluck(:record_point))) 
       = submit_tag("Search")
-    -# = form_for @region,method: "delete" do |f|
-    -#   = f.label :record_point
-    -#   = f.collection_select :record_point, @region.all, :name, :name
-    -#   = f.submit
   .wether
     .wetherinfos
       .info
