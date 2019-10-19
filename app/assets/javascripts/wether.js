@@ -13,9 +13,13 @@ $(function() {
     return html_all;
   }
   
-  $(".search_button").on("click", function(e) {
+  $(".form_region").on("submit", function(e) {
     e.preventDefault();
     var city =  $(".seach_field").val();
+    if(city===""){
+      alert("cityの値なし");
+      return false;
+    }
     var url = BASE_URL + "?q="+city+",jp&units=metric&APPID=" + API_KEY;
     $.ajax({
       type: 'GET',
@@ -29,7 +33,7 @@ $(function() {
       alert('error');
     })
     .always(function(){
-      $(".-btn").removeAttr("disabled");
+      $("#serch_region").removeAttr("disabled");
     });
   });
 });

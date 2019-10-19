@@ -3,7 +3,8 @@
     = form_tag(wether_show_path, method: :get,class:'form_region') do
       = label_tag(:record_point, text='地域')
       = select_tag(:record_point, options_for_select(Region.pluck(:record_point))) 
-      = submit_tag("Search")
+      = submit_tag("Search",{ id: 'serch_region' })
+    %input.seach_field
   .wether
     .wetherinfos
       .info

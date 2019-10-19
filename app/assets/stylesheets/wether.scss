@@ -13,6 +13,7 @@
 .header{
   height:100px;
   width: 95%;
+  display: flex;
   @include simpleshadow;
 }
 .form_region{
@@ -25,7 +26,7 @@
     height:100%;
     font-size: 20px;
   }
-  input[type="submit"]{
+  #serch_region{
     background: yellow;
     height:100%;
   }
