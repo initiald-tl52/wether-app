@@ -14,7 +14,6 @@ $(function() {
   }
 
   function drawingChart(data){
-    console.log("drawingChart");
     const config = {
       type: 'bar',
       data: formatData(data),
@@ -26,8 +25,6 @@ $(function() {
   
   }
   function formatData(data){
-    console.log(data.dates);
-    console.log(data.tempratures);
     return formatedData = {
     labels : data.dates,
     datasets :[{data: data.tempratures}] ,
