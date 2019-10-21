@@ -2,6 +2,14 @@ $(function() {
   var API_KEY = "5bcd49f66a50a0d68ef2ed5d7526700e";
   var BASE_URL = "http://api.openweathermap.org/data/2.5/forecast";
 
+  const context = $("#chart");
+  const chart = new Chart(context,{
+                                  type: 'line',
+                                  data: formatData([]),
+                                  responsive : true,
+                                  label:'気温',
+                                  });
+
   function appendProduct(data) {
     var html_all =``;
     var name_html = `<h2>${data.city.name}</h2>`;
@@ -13,27 +21,21 @@ $(function() {
     return html_all;
   }
 
-  function drawingChart(data){
-    const config = {
-      type: 'bar',
-      data: formatData(data),
-      responsive : true
-      }
-
-  const context = $("#chart");
-  const chart = new Chart(context,config);
-  
-  }
   function formatData(data){
     return formatedData = {
-    labels : data.dates,
-    datasets :[{data: data.tempratures}] ,
+      labels : data.dates,
+      datasets :[{
+        data:data.tempratures,
+        backgroundColor:'rgb(0, 0, 255)',
+        borderColor:'rgb(0, 0, 255)',
+        fill: false,
+      }]
     }
   }
 
   $(".form_region").on("submit", function(e) {
     e.preventDefault();
-    var city =  $(".seach_field").val();
+    var city = $(".seach_field").val();
     if(city===""){
       alert("cityの値なし");
       return false;
@@ -47,6 +49,7 @@ $(function() {
       dataType: 'json',
     })
     .done(function(data){
+      $('.info').empty();
       $('.info').append(appendProduct(data));
     })
 
@@ -57,7 +60,8 @@ $(function() {
       dataType: 'json',
     })
     .done(function(data){
-      drawingChart(data);
+      chart.data = formatData(data);
+      chart.update();
     })
     .fail(function(){
       alert('error');
