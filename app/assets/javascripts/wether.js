@@ -12,7 +12,28 @@ $(function() {
     }
     return html_all;
   }
+
+  function drawingChart(data){
+    console.log("drawingChart");
+    const config = {
+      type: 'bar',
+      data: formatData(data),
+      responsive : true
+      }
+
+  const context = $("#chart");
+  const chart = new Chart(context,config);
   
+  }
+  function formatData(data){
+    console.log(data.dates);
+    console.log(data.tempratures);
+    return formatedData = {
+    labels : data.dates,
+    datasets :[{data: data.tempratures}] ,
+    }
+  }
+
   $(".form_region").on("submit", function(e) {
     e.preventDefault();
     var city =  $(".seach_field").val();
@@ -20,14 +41,26 @@ $(function() {
       alert("cityの値なし");
       return false;
     }
-    var url = BASE_URL + "?q="+city+",jp&units=metric&APPID=" + API_KEY;
+    var open_wether_url = BASE_URL + "?q="+city+",jp&units=metric&APPID=" + API_KEY;
+    var show_url = $(this).attr('action');
+    var record_point = $('#record_point').val();
     $.ajax({
       type: 'GET',
-      url: url,
+      url: open_wether_url,
       dataType: 'json',
     })
     .done(function(data){
       $('.info').append(appendProduct(data));
+    })
+
+    $.ajax({
+      type: 'GET',
+      url: show_url,
+      data: {record_point: record_point},
+      dataType: 'json',
+    })
+    .done(function(data){
+      drawingChart(data);
     })
     .fail(function(){
       alert('error');

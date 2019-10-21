@@ -11,6 +11,7 @@
         %p
     .wetherchart
       .chart
-        = line_chart @chart_data,colors: ["#b00"],defer: true 
+        %canvas#chart
+        -# = line_chart @chart_data,colors: ["#b00"],defer: true 
   .messages
     .message
