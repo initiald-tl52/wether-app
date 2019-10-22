@@ -6,7 +6,12 @@ $(function() {
   const chart = new Chart(context,{
                                   type: 'line',
                                   data: formatData([]),
-                                  responsive : true,
+                                  options: {
+                                    title: {
+                                      display: true,
+                                      text: '１ヶ月の平均気温の推移'
+                                    }
+                                  }
                                   });
 
   function appendProduct(data) {
@@ -24,6 +29,7 @@ $(function() {
     return formatedData = {
       labels : data.dates,
       datasets :[{
+        label: '平均気温',
         data:data.tempratures,
         backgroundColor:'rgb(0, 0, 255)',
         borderColor:'rgb(0, 0, 255)',
