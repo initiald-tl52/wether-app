@@ -1,14 +1,14 @@
 .wrapper
   .header
-    %form(action="#")
-      %input.seach_field(type="text")
-      %input.search_button(type="submit")
+    = form_tag(wether_show_path, method: :get, class:'form_region') do
+      = label_tag(:record_point, text='地域')
+      = select_tag(:record_point, options_from_collection_for_select(@regions,:alfabet_record_point,:record_point))
+      = submit_tag("Search",{ id: 'serch_region' })
   .wether
     .wetherinfos
       .info
         %p
     .wetherchart
       .chart
-        %img(src="#" alt="#")
-  .messages
-    .message
+        %canvas#chart
+  

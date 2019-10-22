@@ -13,12 +13,29 @@
 .header{
   height:100px;
   width: 95%;
+  display: flex;
   @include simpleshadow;
 }
+.form_region{
+  line-height:50px;
+  height: 50px;
+  label{
+    font-size: 25px;
+  }
+  select{
+    height:100%;
+    font-size: 20px;
+  }
+  #serch_region{
+    background: yellow;
+    height:100%;
+  }
+}
+
 .wether{
   height:calc(100vh - 100px - 200px);
   width: 95%;
-  @include simpleshadow;
+  margin: 1em auto;
   display: flex;
 }
 .wetherinfos{
@@ -30,6 +47,7 @@
   width: 60%;
   @include simpleshadow;
 }
+
 
 
 .messages{

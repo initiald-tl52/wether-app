@@ -1,3 +1,3 @@
 class Wether < ApplicationRecord
-  belongs_to :regions, optional: true
+  belongs_to :region, optional: true
 end
