@@ -7,7 +7,6 @@ $(function() {
                                   type: 'line',
                                   data: formatData([]),
                                   responsive : true,
-                                  label:'気温',
                                   });
 
   function appendProduct(data) {
@@ -36,10 +35,6 @@ $(function() {
   $(".form_region").on("submit", function(e) {
     e.preventDefault();
     var city = $('#record_point').val();
-    if(city===""){
-      alert("cityの値なし");
-      return false;
-    }
     var open_wether_url = BASE_URL + "?q="+city+",jp&units=metric&APPID=" + API_KEY;
     var show_url = $(this).attr('action');
     $.ajax({
