@@ -7,9 +7,24 @@ $(function() {
                                   type: 'line',
                                   data: formatData([]),
                                   options: {
+                                    responsive: true,     
                                     title: {
                                       display: true,
+                                      fontSize:20,
                                       text: '１ヶ月の平均気温の推移'
+                                    },
+                                    legend:{
+                                      position: 'right'
+                                    },
+                                    scales: {
+                                      yAxes: [{
+                                          display: true,
+                                          scaleLabel: {
+                                            display: true,
+                                            labelString: '平均気温（℃）',
+                                            fontSize: 18,
+                                          },
+                                      }]
                                     }
                                   }
                                   });
