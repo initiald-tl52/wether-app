@@ -35,14 +35,13 @@ $(function() {
 
   $(".form_region").on("submit", function(e) {
     e.preventDefault();
-    var city = $(".seach_field").val();
+    var city = $('#record_point').val();
     if(city===""){
       alert("cityの値なし");
       return false;
     }
     var open_wether_url = BASE_URL + "?q="+city+",jp&units=metric&APPID=" + API_KEY;
     var show_url = $(this).attr('action');
-    var record_point = $('#record_point').val();
     $.ajax({
       type: 'GET',
       url: open_wether_url,
@@ -56,7 +55,7 @@ $(function() {
     $.ajax({
       type: 'GET',
       url: show_url,
-      data: {record_point: record_point},
+      data: {alfabet_record_point: city},
       dataType: 'json',
     })
     .done(function(data){
