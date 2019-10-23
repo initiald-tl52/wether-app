@@ -56,17 +56,18 @@ $(function() {
   $(".form_region").on("submit", function(e) {
     e.preventDefault();
     var city = $('#record_point').val();
-    var open_wether_url = BASE_URL + "?q="+city+",jp&units=metric&APPID=" + API_KEY;
     var show_url = $(this).attr('action');
-    $.ajax({
-      type: 'GET',
-      url: open_wether_url,
-      dataType: 'json',
-    })
-    .done(function(data){
-      $('.info').empty();
-      $('.info').append(appendProduct(data));
-    })
+
+    // // var open_wether_url = BASE_URL + "?q="+city+",jp&units=metric&APPID=" + API_KEY;
+    // // $.ajax({
+    // //   type: 'GET',
+    // //   url: open_wether_url,
+    // //   dataType: 'json',
+    // // })
+    // // .done(function(data){
+    // //   $('.info').empty();
+    // //   $('.info').append(appendProduct(data));
+    // })
 
     $.ajax({
       type: 'GET',

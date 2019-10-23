@@ -32,15 +32,63 @@
   }
 }
 
-.wether{
+.wether-box{
   height:calc(100vh - 100px - 200px);
   width: 95%;
   margin: 1em auto;
   display: flex;
 }
-.wetherinfos{
+.wetherinfo{
   width: 40%;
   @include simpleshadow;
+}
+.upper-side{
+  border-bottom: 1px solid #ccc;
+  height: 50%;
+  &__header{
+    width: 100%;
+    height:50px;
+    h3{
+      font-size: 20px;
+      margin-bottom:20px;
+    }
+  }
+  &__left{
+    float:left;
+    width: 50%;
+    .imagebox {
+      margin:0 auto;
+      height: 100px;
+      width: 100px;
+      background-color: chartreuse;
+    }
+    p{
+      margin-top:10px;
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+  &__right{
+    float: right;
+    width: 50%;
+    padding:20px;
+    p{
+      margin-bottom:20px;
+    }
+    .temprature-box,.precipitation-box{
+      display: flex;
+      #temprature,#precipitation{
+        font-weight: bold;
+        font-size: 35px;
+        vertical-align: text-bottom;
+      }
+    }
+  }
+}
+
+.under-side{
+
 }
 
 .wetherchart{

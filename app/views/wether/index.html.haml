@@ -4,10 +4,30 @@
       = label_tag(:record_point, text='地域')
       = select_tag(:record_point, options_from_collection_for_select(@regions,:alfabet_record_point,:record_point))
       = submit_tag("Search",{ id: 'serch_region' })
-  .wether
-    .wetherinfos
-      .info
-        %p
+  .wether-box
+    .wetherinfo
+      .upper-side
+        .upper-side__header
+          %h3
+            今の天気
+        .upper-side__left
+          .imagebox
+            %image
+          %p.wether
+            晴れ
+        .upper-side__right
+          .temprature-box
+            %p 
+              気温：
+              %span#temprature 20
+              ℃
+          .precipitation-box
+            %p 
+              降水量：
+              %span#precipitation 10
+              mm
+      .under-side
+        
     .wetherchart
       .chart
         %canvas#chart
