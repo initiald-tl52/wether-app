@@ -1,6 +1,7 @@
 $(function() {
-  var API_KEY = "5bcd49f66a50a0d68ef2ed5d7526700e";
-  var BASE_URL = "http://api.openweathermap.org/data/2.5/forecast";
+  const API_KEY = "5bcd49f66a50a0d68ef2ed5d7526700e";
+  const FORCAST_BASE_URL = "http://api.openweathermap.org/data/2.5/forecast?q=";
+  const CURRENT_BASE_URL = "http://api.openweathermap.org/data/2.5/weather?q=";
 
   const context = $("#chart");
   const chart = new Chart(context,{
@@ -27,19 +28,8 @@ $(function() {
                                       }]
                                     }
                                   }
-                                  });
-
-  function appendProduct(data) {
-    var html_all =``;
-    var name_html = `<h2>${data.city.name}</h2>`;
-    html_all += name_html;
-    for (  var i = 0;  i < 5;  i++  ) {
-      var html = `<p>${data.list[i].main.temp}</p>`
-      html_all += html;
-    }
-    return html_all;
-  }
-
+                                });
+  
   function formatData(data){
     return formatedData = {
       labels : data.dates,
@@ -53,21 +43,47 @@ $(function() {
     }
   }
 
+  function appendProduct(data) {
+    var html_all =``;
+    var name_html = `<h2>${data.city.name}</h2>`;
+    html_all += name_html;
+    for (  var i = 0;  i < 5;  i++  ) {
+      var html = `<p>${data.list[i].main.temp}</p>`
+      html_all += html;
+    }
+    return html_all;
+  }
+  function getWetherIcon(id){
+    return `http://openweathermap.org/img/w/${id}.png`
+  }
   $(".form_region").on("submit", function(e) {
     e.preventDefault();
     var city = $('#record_point').val();
     var show_url = $(this).attr('action');
-
-    // // var open_wether_url = BASE_URL + "?q="+city+",jp&units=metric&APPID=" + API_KEY;
-    // // $.ajax({
-    // //   type: 'GET',
-    // //   url: open_wether_url,
-    // //   dataType: 'json',
-    // // })
-    // // .done(function(data){
-    // //   $('.info').empty();
-    // //   $('.info').append(appendProduct(data));
+    let current_wether_url = CURRENT_BASE_URL + city +",jp&units=metric&APPID=" + API_KEY;
+    
+    // var open_wether_url = BASE_URL +city+",jp&units=metric&APPID=" + API_KEY;
+    // $.ajax({
+    //   type: 'GET',
+    //   url: open_wether_url,
+    //   dataType: 'json',
     // })
+    // .done(function(data){
+    //   $('.info').empty();
+    //   $('.info').append(appendProduct(data));
+    // })
+
+    $.ajax({
+      type: 'GET',
+      url: current_wether_url,
+      dataType: 'json',
+    })
+    .done(function(data){
+      $('.wether').text(data.weather[0].main);
+      $('#temprature').text(data.main.temp);
+      $('#precipitation').text(data.main.humidity);
+      $('.imagebox').children('#wether-icon').attr('src', getWetherIcon(data.weather[0].icon));
+    })
 
     $.ajax({
       type: 'GET',
