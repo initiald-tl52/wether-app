@@ -45,7 +45,6 @@
 .upper-side{
   border-bottom: 1px solid #ccc;
   height: 50%;
-  margin-bottom: 20px;
   &__header{
     width: 100%;
     height:50px;
@@ -61,10 +60,7 @@
       margin:0 auto;
       height: 100px;
       width: 100px;
-      #wether-icon{
-      height: 100%;
-      width: 100%;
-      }
+      background-color: chartreuse;
     }
     p{
       margin-top:10px;
@@ -91,27 +87,8 @@
   }
 }
 
-
-
 .under-side{
-  width:100%;
-  table{
-    border-collapse: collapse;
-    width: 100%;
-    td,th{
-      text-align:center;
-      vertical-align:middle;
-      border:1px solid #666;
-      padding:10px;
-      height: 50px;
-      width:20%;
-    }
-  }
-  // tr:last-child td,
-  // tr:last-child th{
-  //   border-bottom:1px solid #666; 
-  //   width:100%;
-  // }
+
 }
 
 .wetherchart{
