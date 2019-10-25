@@ -22,7 +22,7 @@ $(function() {
                                           display: true,
                                           scaleLabel: {
                                             display: true,
-                                            labelString: '平均気温（℃）',
+                                            labelString: '気温（℃）',
                                             fontSize: 18,
                                           },
                                       }]
@@ -37,9 +37,17 @@ $(function() {
       datasets :[{
         label: '平均気温',
         data:data.tempratures,
-        backgroundColor:'rgb(0, 0, 255)',
-        borderColor:'rgb(0, 0, 255)',
+        backgroundColor:'rgb(51,204,255)',
+        borderColor:'rgb(51,204,255)',
         fill: false,
+      },
+      {
+        label: '平年値',
+        data:data.normal_temp,
+        backgroundColor:'rgb(255,255,204)',
+        borderColor:'rgb(204,204,51)',
+        pointBackgroundColor:'rgb(255,255,204)',
+        fill: true,
       }]
     }
   }
@@ -139,9 +147,7 @@ $(function() {
     })
     .done(function(data){
       $('.teble_box').empty();
-      $('.under-side').append(appendTable(data));
-      // $('.info').empty();
-      // $('.info').append(appendProduct(data));
+      $('.teble_box').append(appendTable(data));
     })
 
     $.ajax({
