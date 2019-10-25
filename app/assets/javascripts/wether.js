@@ -61,7 +61,8 @@ $(function() {
   //   let formatted = mm+"月"+dd+"日"+hour+":"+min;
   //   return formatted
   // }
-
+  // 以下、コードが冗長。上記のメソッド使用して可読性向上の必要あり。
+  // しかし、上記のコード使用するとエラーになる。
   function appendTable(data) {
     let dates = []
     let wether_icons_id = []
