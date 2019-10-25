@@ -12,22 +12,46 @@
             今の天気
         .upper-side__left
           .imagebox
-            %image
+            %image#wether-icon
           %p.wether
             晴れ
         .upper-side__right
           .temprature-box
             %p 
               気温：
-              %span#temprature 20
+              %span#temprature 
               ℃
           .precipitation-box
             %p 
-              降水量：
-              %span#precipitation 10
-              mm
+              湿度：
+              %span#precipitation 
+              ％
       .under-side
-        
+        %table(border="1")
+          %tr.tr_date
+            %td 10/10
+            %td 10/11
+            %td 10/12
+            %td 10/13
+            %td 10/14
+          %tr.tr_wether
+            %td 図 
+            %td 図
+            %td 図
+            %td 図
+            %td 図
+          %tr.tr_temprature
+            %td 15 ℃
+            %td 15 ℃
+            %td 15 ℃
+            %td 15 ℃
+            %td 15 ℃
+          %tr.tr_precipitation
+            %td 70 %
+            %td 70 %
+            %td 70 %
+            %td 70 %
+            %td 70 %
     .wetherchart
       .chart
         %canvas#chart
