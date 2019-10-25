@@ -43,12 +43,22 @@ $(function() {
       }]
     }
   }
-  
+
+  // function dateFormat(date) {
+  //   let date = new Date(date);
+  //   let mm = date.getMonth();
+  //   let dd = date.getDate();
+  //   let hour = date.getHours();
+  //   let min = date.getMinutes()+"0";
+  //   let formatted = mm+"月"+dd+"日"+hour+":"+min;
+  //   return formatted
+  // }
+
   function appendTable(data) {
-    var dates = []
-    var wether_icons_id = []
-    var tempratures = []
-    var humiditys = []
+    let dates = []
+    let wether_icons_id = []
+    let tempratures = []
+    let humiditys = []
     for (  var i = 0;  i < 5;  i++  ) {
       let date = new Date(data.list[i].dt_txt);
       let mm = date.getMonth();
@@ -56,48 +66,54 @@ $(function() {
       let hour = date.getHours();
       let min = date.getMinutes()+"0";
       dates.push(mm+"月"+dd+"日"+hour+":"+min);
-      wether_icons_id.push(data.list[i].weather[0].icon);
-      tempratures.push(data.list[i].main.temp);
+      wether_icons_id.push(`<img src=${getWetherIcon(data.list[i].weather[0].icon)}>`);
+      tempratures.push(data.list[i].main.temp.toFixed(1));
       humiditys.push(data.list[i].main.humidity);
     }
+
     var table = `<table border="1">
-    <tbody>
-        <tr class="tr_date">
-        <td>${dates[0]}</td>
-        <td>${dates[1]}</td>
-        <td>${dates[2]}</td>
-        <td>${dates[3]}</td>
-        <td>${dates[4]}</td>
-      </tr>
-      <tr class="tr_wether">
-        <td>${wether_icons_id[0]}</td>
-        <td>${wether_icons_id[1]}</td>
-        <td>${wether_icons_id[2]}</td>
-        <td>${wether_icons_id[3]}</td>
-        <td>${wether_icons_id[4]}</td>
-      </tr>
-      <tr class="tr_temprature">
-        <td>${tempratures[0]} ℃</td>
-        <td>${tempratures[1]} ℃</td>
-        <td>${tempratures[2]} ℃</td>
-        <td>${tempratures[3]} ℃</td>
-        <td>${tempratures[4]} ℃</td>
-      </tr>
-      <tr class="tr_precipitation">
-        <td>${humiditys[0]} %</td>
-        <td>${humiditys[1]} %</td>
-        <td>${humiditys[2]} %</td>
-        <td>${humiditys[3]} %</td>
-        <td>${humiditys[4]} %</td>
-      </tr>
-    </tbody>
-  </table>`
-  return table;
+        <tbody>
+          <tr class="tr_date">
+            <td>日時</td>
+            <td>${dates[0]}</td>
+            <td>${dates[1]}</td>
+            <td>${dates[2]}</td>
+            <td>${dates[3]}</td>
+            <td>${dates[4]}</td>
+          </tr>
+          <tr class="tr_wether">
+            <td>天気</td>
+            <td>${wether_icons_id[0]}</td>
+            <td>${wether_icons_id[1]}</td>
+            <td>${wether_icons_id[2]}</td>
+            <td>${wether_icons_id[3]}</td>
+            <td>${wether_icons_id[4]}</td>
+          </tr>
+          <tr class="tr_temprature">
+            <td>気温</td>
+            <td>${tempratures[0]} ℃</td>
+            <td>${tempratures[1]} ℃</td>
+            <td>${tempratures[2]} ℃</td>
+            <td>${tempratures[3]} ℃</td>
+            <td>${tempratures[4]} ℃</td>
+          </tr>
+          <tr class="tr_precipitation">
+            <td>湿度</td>
+            <td>${humiditys[0]} %</td>
+            <td>${humiditys[1]} %</td>
+            <td>${humiditys[2]} %</td>
+            <td>${humiditys[3]} %</td>
+            <td>${humiditys[4]} %</td>
+          </tr>
+        </tbody>
+      </table>`
+    return table;
   }
 
   function getWetherIcon(id){
     return `http://openweathermap.org/img/w/${id}.png`
   }
+
   $(".form_region").on("submit", function(e) {
     e.preventDefault();
     let city = $('#record_point').val();
@@ -122,7 +138,7 @@ $(function() {
       dataType: 'json',
     })
     .done(function(data){
-      $('.under-side').empty();
+      $('.teble_box').empty();
       $('.under-side').append(appendTable(data));
       // $('.info').empty();
       // $('.info').append(appendProduct(data));

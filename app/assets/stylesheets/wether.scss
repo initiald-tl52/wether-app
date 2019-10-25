@@ -43,8 +43,8 @@
   @include simpleshadow;
 }
 .upper-side{
-  border-bottom: 1px solid #ccc;
-  height: 50%;
+  
+  height: 40%;
   margin-bottom: 20px;
   &__header{
     width: 100%;
@@ -93,23 +93,21 @@
 
 .under-side{
   width:100%;
+  .teble_box{
+    margin-top: 10px;
+  }
   table{
     border-collapse: collapse;
     width: 100%;
-    td,th{
+    td{
       text-align:center;
       vertical-align:middle;
       border:1px solid #666;
       padding:10px;
       height: 50px;
-      width:20%;
+      width:16%;
     }
   }
-  // tr:last-child td,
-  // tr:last-child th{
-  //   border-bottom:1px solid #666; 
-  //   width:100%;
-  // }
 }
 
 
