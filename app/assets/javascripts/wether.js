@@ -70,7 +70,7 @@ $(function() {
     let humiditys = []
     for (  var i = 0;  i < 5;  i++  ) {
       let date = new Date(data.list[i].dt_txt);
-      let mm = date.getMonth();
+      let mm = date.getMonth()+1;
       let dd = date.getDate();
       let hour = date.getHours();
       let min = date.getMinutes()+"0";
