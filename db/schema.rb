@@ -59,5 +59,6 @@ ActiveRecord::Schema.define(version: 2019_10_22_002405) do
 
   add_foreign_key "messages", "regions"
   add_foreign_key "messages", "users"
+  add_foreign_key "users", "regions"
   add_foreign_key "wethers", "regions"
 end

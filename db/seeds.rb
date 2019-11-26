@@ -1,6 +1,6 @@
 require "csv"
 
-CSV.foreach('db/20190918-1019北海道気象データ 加工 利用可.csv', headers: true) do |row|
+CSV.foreach('db/20190918-1019北海道気象データ.csv', headers: true) do |row|
   unless Region.exists?(record_point: row['地点名'])
     r = Region.new(
                   name: row['地域'],
