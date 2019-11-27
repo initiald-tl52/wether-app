@@ -5,7 +5,7 @@ class WetherController < ApplicationController
 
   def show
     region = Region.find_by(alfabet_record_point: params[:alfabet_record_point])
-    @wethers = region.wethers.order('date ASC').group(:date)
+    @wethers = region.wethers.order('date ASC')
     respond_to do |format|
       format.html
       format.json
