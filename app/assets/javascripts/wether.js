@@ -123,10 +123,10 @@ $(function() {
     return `http://openweathermap.org/img/w/${id}.png`
   }
 
-  $(".form_region").on("submit", function(e) {
+  $("#record_point").change(function(e) {
     e.preventDefault();
     let city = $('#record_point').val();
-    let show_url = $(this).attr('action');
+    let show_url = "/wether/show"
     let current_wether_url = CURRENT_BASE_URL + city +",jp&units=metric&APPID=" + API_KEY;
     let open_wether_url = FORCAST_BASE_URL +city+",jp&units=metric&APPID=" + API_KEY;
 
