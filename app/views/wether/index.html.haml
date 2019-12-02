@@ -6,8 +6,8 @@
       Wether App
     .serch-region 
       = form_tag(wether_show_path, method: :get, class:'form_region') do
-        = label_tag(:record_point, text='地域')
-        = select_tag(:record_point, options_from_collection_for_select(@regions,:alfabet_record_point,:record_point))
+        = select_tag(:record_point,options_from_collection_for_select(@regions,:alfabet_record_point,:record_point),
+          {placeholder: '地域を選択',class: 'custom-select sources',id:'sources'})
   .wether-box
     .wether-top
 
