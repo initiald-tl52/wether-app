@@ -123,10 +123,12 @@ $(function() {
     return `http://openweathermap.org/img/w/${id}.png`
   }
 
-  $(".form_region").on("submit", function(e) {
-    e.preventDefault();
-    let city = $('#record_point').val();
-    let show_url = $(this).attr('action');
+  $(".custom-select-trigger").on('DOMSubtreeModified propertychange', function() {
+    if($('.custom-select-trigger').text()===""){
+      return false;
+    };
+    let city = $('.custom-select').val();
+    let show_url = "/wether/show"
     let current_wether_url = CURRENT_BASE_URL + city +",jp&units=metric&APPID=" + API_KEY;
     let open_wether_url = FORCAST_BASE_URL +city+",jp&units=metric&APPID=" + API_KEY;
 

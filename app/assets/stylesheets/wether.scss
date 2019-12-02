@@ -2,48 +2,38 @@
   box-sizing: border-box;
 }
 
-@mixin simpleshadow {
-  margin: 1em auto;
-  padding: 1em;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  box-shadow: 1px 1px 2px #ccc;
+body{
+  text-align: center;
 }
 
 .header{
-  height:100px;
-  width: 95%;
-  display: flex;
-  @include simpleshadow;
-}
-.form_region{
-  line-height:50px;
-  height: 50px;
-  label{
-    font-size: 25px;
+  height:300px;
+  background-image: url('/images/hokkaido_sky.jpg');
+  padding-top:20px;
+  .subtitle{
+  }
+  .title{
+    margin: 50px;
+    font-size: 4.5rem;
   }
   select{
-    height:100%;
     font-size: 20px;
-  }
-  #serch_region{
-    background: yellow;
-    height:100%;
   }
 }
 
 .wether-box{
-  height:calc(100vh - 100px - 200px);
+  height:calc(100vh - 300px);
+  padding-top:20px;
   width: 95%;
   margin: 1em auto;
   display: flex;
 }
-.wetherinfo{
+
+.wether-info{
   width: 40%;
-  @include simpleshadow;
 }
+
 .upper-side{
-  
   height: 40%;
   margin-bottom: 20px;
   &__header{
@@ -110,16 +100,8 @@
   }
 }
 
-
 .wetherchart{
   width: 60%;
-  @include simpleshadow;
 }
 
 
-
-.messages{
-  height:200px;
-  width: 95%;
-  @include simpleshadow;
-}

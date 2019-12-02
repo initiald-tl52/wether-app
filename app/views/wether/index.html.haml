@@ -1,11 +1,17 @@
 .wrapper
-  .header
-    = form_tag(wether_show_path, method: :get, class:'form_region') do
-      = label_tag(:record_point, text='地域')
-      = select_tag(:record_point, options_from_collection_for_select(@regions,:alfabet_record_point,:record_point))
-      = submit_tag("Search",{ id: 'serch_region' })
+  %header.header
+    %p.subtitle
+      weather informations for support your life and business
+    %h1.title
+      Wether App
+    .serch-region 
+      = form_tag(wether_show_path, method: :get, class:'form_region') do
+        = select_tag(:record_point,options_from_collection_for_select(@regions,:alfabet_record_point,:record_point),
+          {placeholder: '地域を選択',class: 'custom-select sources',id:'sources'})
   .wether-box
-    .wetherinfo
+    .wether-top
+
+    .wether-info
       .upper-side
         .upper-side__header
           %h3
