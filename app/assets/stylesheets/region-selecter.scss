@@ -18,6 +18,7 @@
   display: inline-block;
 }
 .custom-select-trigger {
+  width:230px;
   position: relative;
   display: block;
   padding: 0 84px 0 22px;
@@ -25,7 +26,7 @@
   font-weight: 300;
   color: #fff;
   line-height: 60px;
-  background: #5c9cd8;
+  background: #000099;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -47,6 +48,8 @@
   transform: rotate(-135deg) translateY(-50%);
 }
 .custom-options {
+  overflow: scroll;
+  max-height: 300px;
   position: absolute;
   display: block;
   top: 100%; left: 0; right: 0;
