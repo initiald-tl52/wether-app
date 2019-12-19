@@ -1,4 +1,4 @@
-require '/Users/itoudaichi/projects/wether-app/lib/weather_scraping.rb'
+require './lib/weather_scraping.rb'
 require 'date'
 
 module WetherHelper
