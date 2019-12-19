@@ -1,7 +1,7 @@
 $(function() {
   const API_KEY = "5bcd49f66a50a0d68ef2ed5d7526700e";
-  const FORCAST_BASE_URL = "https://agri-wether.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?q=";
-  const CURRENT_BASE_URL = "https://agri-wether.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=";
+  const FORCAST_BASE_URL = "https://api.openweathermap.org/data/2.5/forecast?q=";
+  const CURRENT_BASE_URL = "https://api.openweathermap.org/data/2.5/weather?q=";
 
   const context = $("#chart");
   const chart = new Chart(context,{
