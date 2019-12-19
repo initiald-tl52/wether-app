@@ -1,5 +1,15 @@
 # README
 
+# アプリケーション概要
+最新の天気予報と気象庁の過去1ヶ月の気温とその平年値をグラフ化するアプリケーション
+
+# アプリケーション内で使用している技術一覧
+## 言語・ライブラリ
+・Chart.js・PostgreSQL・Haml・SCSS・Ruby・Ruby on Rails・JavaScript・jQuery
+## API
+OpenWetherAPI
+
+# DB設計
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|

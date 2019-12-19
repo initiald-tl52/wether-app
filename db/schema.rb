@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_002405) do
+ActiveRecord::Schema.define(version: 2019_12_05_122642) do
 
   create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "body"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2019_10_22_002405) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "alfabet_record_point"
+    t.string "prec_no"
+    t.string "block_no"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
