@@ -179,5 +179,5 @@ $(function() {
 });
 // 画面表示後に帯広を選択
 $(window).on('load',function(){
-  $('.custom-option').text("帯広").click()
+  $(".custom-option:contains('帯広')").click()
 });
