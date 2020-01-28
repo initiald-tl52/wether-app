@@ -8,10 +8,10 @@ $(function() {
                                   type: 'line',
                                   data: formatData([]),
                                   options: {
-                                    responsive: true,     
+                                    responsive: true,
                                     title: {
                                       display: true,
-                                      fontSize:20,
+                                      fontSize: 20,
                                       text: '１ヶ月の平均気温の推移'
                                     },
                                     legend:{
@@ -43,11 +43,12 @@ $(function() {
       },
       {
         label: '平年値',
-        data:data.normal_temp,
+        data: data.normal_temp,
         backgroundColor:'rgb(255,255,204)',
         borderColor:'rgb(204,204,51)',
         pointBackgroundColor:'rgb(255,255,204)',
         fill: true,
+        fill: 'start',
       }]
     }
   }
